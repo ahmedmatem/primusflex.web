@@ -139,7 +139,7 @@
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [Authorize(Roles = "SupperAdmin")]
         public ActionResult Register()
         {
             return View();
@@ -148,7 +148,7 @@
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Roles = "SupperAdmin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
