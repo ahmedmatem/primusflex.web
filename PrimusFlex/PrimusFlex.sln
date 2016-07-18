@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimusFlex.Web", "PrimusFlex.Web\PrimusFlex.Web.csproj", "{149597ED-CB22-46DE-A5D2-B1489E54CE8A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{2B43DB98-8098-4F99-BD01-9A84056FB521}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimusFlex.Data.Models", "..\Data\PrimusFlex.Data.Models\PrimusFlex.Data.Models.csproj", "{8EBA1F0A-BAD7-4269-AF2E-136B9BB759E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimusFlex.Data", "..\Data\PrimusFlex.Data\PrimusFlex.Data.csproj", "{D3188A77-F889-44DF-9D12-384F7B6DB990}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimusFlex.Data.Common", "..\Data\PrimusFlex.Data.Common\PrimusFlex.Data.Common.csproj", "{F0F79E55-407E-43D8-B3F0-90D9472F2C50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimusFlex.Web.Infrastructure", "..\PrimusFlex.Web.Infrastructure\PrimusFlex.Web.Infrastructure.csproj", "{E0C47B8A-E312-4426-87DB-4A0CC9EC250C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{149597ED-CB22-46DE-A5D2-B1489E54CE8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{149597ED-CB22-46DE-A5D2-B1489E54CE8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{149597ED-CB22-46DE-A5D2-B1489E54CE8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{149597ED-CB22-46DE-A5D2-B1489E54CE8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EBA1F0A-BAD7-4269-AF2E-136B9BB759E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EBA1F0A-BAD7-4269-AF2E-136B9BB759E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EBA1F0A-BAD7-4269-AF2E-136B9BB759E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EBA1F0A-BAD7-4269-AF2E-136B9BB759E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3188A77-F889-44DF-9D12-384F7B6DB990}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3188A77-F889-44DF-9D12-384F7B6DB990}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3188A77-F889-44DF-9D12-384F7B6DB990}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3188A77-F889-44DF-9D12-384F7B6DB990}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0F79E55-407E-43D8-B3F0-90D9472F2C50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0F79E55-407E-43D8-B3F0-90D9472F2C50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0F79E55-407E-43D8-B3F0-90D9472F2C50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0F79E55-407E-43D8-B3F0-90D9472F2C50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0C47B8A-E312-4426-87DB-4A0CC9EC250C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0C47B8A-E312-4426-87DB-4A0CC9EC250C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0C47B8A-E312-4426-87DB-4A0CC9EC250C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0C47B8A-E312-4426-87DB-4A0CC9EC250C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8EBA1F0A-BAD7-4269-AF2E-136B9BB759E6} = {2B43DB98-8098-4F99-BD01-9A84056FB521}
+		{D3188A77-F889-44DF-9D12-384F7B6DB990} = {2B43DB98-8098-4F99-BD01-9A84056FB521}
+		{F0F79E55-407E-43D8-B3F0-90D9472F2C50} = {2B43DB98-8098-4F99-BD01-9A84056FB521}
+	EndGlobalSection
+EndGlobal
