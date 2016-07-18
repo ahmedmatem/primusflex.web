@@ -1,0 +1,14 @@
+﻿@using PrimusFlex.Web.Infrastructure.Helpers
+
+<ul class="nav navbar-nav">
+    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
+    <li class="@Html.IsActive()">
+        <a href="@Url.Content("~/")"><i class="fa fa-home"></i> Home</a>
+    </li>
+    @if (Request.IsAuthenticated)
+    {
+        <li class="@Html.IsActive(controllers: "", actions: "")">
+            <a href="@Url.Content("~/")"><i class="fa fa-picture-o"></i> Gallery</a>
+        </li>
+    }
+</ul>

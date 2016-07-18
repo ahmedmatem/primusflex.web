@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using PrimusFlex.Data.Models.Types;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace PrimusFlex.Web.ViewModels
@@ -79,6 +80,9 @@ namespace PrimusFlex.Web.ViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name ="Role")]
+        public Role Role { get; set; }
     }
 
     public class ResetPasswordViewModel
