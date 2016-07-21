@@ -59,11 +59,18 @@
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StorageAccount.cs" />
     <Compile Include="Types\Role.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PrimusFlex.Data.Common\PrimusFlex.Data.Common.csproj">
+      <Project>{f0f79e55-407e-43d8-b3f0-90d9472f2c50}</Project>
+      <Name>PrimusFlex.Data.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

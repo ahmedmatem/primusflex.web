@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNet.Identity
-@using PrimusFlex.Data.Models.Types
+@using PrimusFlex.Web.Infrastructure
+@using PrimusFlex.Web.Infrastructure.Helpers
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -7,16 +8,14 @@
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right">
-                @if (User.IsInRole(Role.SupperAdmin.ToString()))
+                @if (User.IsInRole(Constant.ROLE_SUPPER_ADMIN))
                 {
-                    <li>
-                    <li>@Html.ActionLink("Registration", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-            </li>
-        }
+
+                }
         <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            <a href="@Url.Content("~/manage")" title="Manage"><i class="fa fa-user"></i> @User.Identity.GetUserName().CutTo()</a>
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out"></i> Log off</a></li>
     </ul>
     }
 }

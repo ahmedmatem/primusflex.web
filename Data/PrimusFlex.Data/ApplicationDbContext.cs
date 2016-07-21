@@ -15,6 +15,8 @@
         {
         }
 
+        public IDbSet<StorageAccount> StorageAccount { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

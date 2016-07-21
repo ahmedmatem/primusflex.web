@@ -1,14 +1,27 @@
 ﻿@using PrimusFlex.Web.Infrastructure.Helpers
+@using PrimusFlex.Web.Infrastructure
 
 <ul class="nav navbar-nav">
-    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
     <li class="@Html.IsActive()">
         <a href="@Url.Content("~/")"><i class="fa fa-home"></i> Home</a>
     </li>
+    
     @if (Request.IsAuthenticated)
     {
-        <li class="@Html.IsActive(controllers: "", actions: "")">
-            <a href="@Url.Content("~/")"><i class="fa fa-picture-o"></i> Gallery</a>
+        // SAAM - Roles
+        if (User.IsInRole(Constant.ROLE_SUPPER_ADMIN) ||
+            User.IsInRole(Constant.ROLE_ADMIN) ||
+            User.IsInRole(Constant.ROLE_MANAGER))
+        {
+            <li class="@Html.IsActive(controllers: "Users")">
+                @*@Html.ActionLink("Users", "Index", "User", new { area = "Management" }, null)*@
+                <a href="@Url.Content("~/management/users")"><i class="fa fa-users"></i> Users</a>
+            </li>
+        }
+
+        // SAAM and Worker Roles
+        <li class="@Html.IsActive(controllers: "Images")">
+            <a href="@Url.Content("~/management/images")"><i class="fa fa-image"></i> Images</a>
         </li>
     }
 </ul>

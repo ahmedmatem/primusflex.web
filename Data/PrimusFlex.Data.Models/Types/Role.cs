@@ -2,8 +2,6 @@
 {
     public enum Role
     {
-        SupperAdmin,
-        Admin,
         Manager,
         Worker,
         Guest
