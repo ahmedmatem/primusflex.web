@@ -19,7 +19,8 @@
         public static CloudStorageAccount StorageAccount()
         {
             var accountKey = GetAccountPair();
-
+            
+            //Parse the connection string and return a reference to the storage account.
             string ConnectionString =
                 string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
                 accountKey["AccountName"], accountKey["AccountKey"]);

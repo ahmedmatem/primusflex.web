@@ -25,7 +25,6 @@
         // GET: management/image/all
         public ActionResult All()
         {
-            //Parse the connection string and return a reference to the storage account.
             CloudStorageAccount storageAccount = StorageHelpers.StorageAccount();
 
             //Create the blob client object.
@@ -36,7 +35,7 @@
             container.CreateIfNotExists();
 
             var model = new List<ImageViewModel>();
-            // Loop over items within the container and output the length and URI.
+            // Loop over items within the container and output the URI.
             foreach (IListBlobItem item in container.ListBlobs(null, false))
             {
                 if (item.GetType() == typeof(CloudBlockBlob))

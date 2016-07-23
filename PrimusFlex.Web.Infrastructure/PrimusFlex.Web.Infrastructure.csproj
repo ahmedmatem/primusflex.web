@@ -97,6 +97,7 @@
   <ItemGroup>
     <Compile Include="Constant.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
+    <Compile Include="Helpers\RequestHelpers.cs" />
     <Compile Include="Helpers\StorageHelpers.cs" />
     <Compile Include="Helpers\StringHelpers.cs" />
     <Compile Include="Mapping\AutoMapperConfig.cs" />
