@@ -18,12 +18,12 @@
 
         public static CloudStorageAccount StorageAccount()
         {
-            var accountKey = GetAccountPair();
+            var accountPair = GetAccountPair();
             
             //Parse the connection string and return a reference to the storage account.
             string ConnectionString =
                 string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-                accountKey["AccountName"], accountKey["AccountKey"]);
+                accountPair["AccountName"], accountPair["AccountKey"]);
 
             return CloudStorageAccount.Parse(ConnectionString);
         }
@@ -65,14 +65,14 @@
 
         private static Dictionary<string, string> GetAccountPair()
         {
-            Dictionary<string, string> accountKey = new Dictionary<string, string>();
+            Dictionary<string, string> accountPair = new Dictionary<string, string>();
 
             var account = storageAccount.All().FirstOrDefault();
 
-            accountKey.Add("AccountName", account.AccountName);
-            accountKey.Add("AccountKey", account.AccountKey);
+            accountPair.Add("AccountName", account.AccountName);
+            accountPair.Add("AccountKey", account.AccountKey);
 
-            return accountKey;
+            return accountPair;
         }
     }
 }

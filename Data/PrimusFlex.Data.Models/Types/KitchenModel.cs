@@ -2,7 +2,7 @@
 {
     public enum KitchenModel
     {
-        Symphiny,
+        Symphony,
         HATT,
         Comador,
         Manhattan

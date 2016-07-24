@@ -14,5 +14,7 @@
         public string Imei { get; set; }
 
         public string OwnerId { get; set; }
+
+        public string AccessToken { get; set; }
     }
 }
