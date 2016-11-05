@@ -209,11 +209,19 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Management\Controllers\BaseAdminController.cs" />
     <Compile Include="Areas\Management\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Management\Controllers\ControlPanelController.cs" />
     <Compile Include="Areas\Management\Controllers\ImagesController.cs" />
+    <Compile Include="Areas\Management\Controllers\ReportsController.cs" />
+    <Compile Include="Areas\Management\Controllers\SitesController.cs" />
     <Compile Include="Areas\Management\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Management\Controllers\BaseWorkerController.cs" />
     <Compile Include="Areas\Management\ManagementAreaRegistration.cs" />
+    <Compile Include="Areas\Management\ViewModels\ImagesIndexViewModel.cs" />
     <Compile Include="Areas\Management\ViewModels\ImageViewModel.cs" />
+    <Compile Include="Areas\Management\ViewModels\ReportViewModel.cs" />
+    <Compile Include="Areas\Management\ViewModels\SiteViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -230,6 +238,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Icons\constructionSite.png" />
+    <Content Include="Content\Icons\images-icon.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -246,10 +256,22 @@
     <Content Include="Areas\Management\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Management\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Management\Views\Images\All.cshtml" />
+    <Content Include="Areas\Management\Views\Reports\Index.cshtml" />
+    <Content Include="Areas\Management\Views\Reports\Create.cshtml" />
+    <Content Include="Areas\Management\Views\Shared\_ImagesPartial.cshtml" />
+    <Content Include="Areas\Management\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Areas\Management\Views\ControlPanel\Index.cshtml" />
+    <Content Include="Areas\Management\Views\Sites\Index.cshtml" />
+    <Content Include="Areas\Management\Views\Sites\Create.cshtml" />
+    <Content Include="Areas\Management\Views\Sites\Edit.cshtml" />
+    <Content Include="Areas\Management\Views\Sites\Pending.cshtml" />
+    <Content Include="Areas\Management\Views\Sites\Approve.cshtml" />
+    <Content Include="Areas\Management\Views\Images\Index.cshtml" />
     <None Include="Properties\PublishProfiles\primusflexltd.pubxml" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-1.12.4.intellisense.js" />
+    <Content Include="Scripts\jquery-1.12.4.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -292,11 +314,14 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_NavPartial.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\TruncatedText.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Management\Views\BaseAdmin\" />
     <Folder Include="Areas\Management\Views\Management\" />
-    <Folder Include="Areas\Management\Views\Users\" />
+    <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -304,7 +329,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\PrimusFlex.Data.Common\PrimusFlex.Data.Common.csproj">
@@ -322,6 +346,10 @@
     <ProjectReference Include="..\..\PrimusFlex.Web.Infrastructure\PrimusFlex.Web.Infrastructure.csproj">
       <Project>{e0c47b8a-e312-4426-87db-4a0cc9ec250c}</Project>
       <Name>PrimusFlex.Web.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data\PrimusFlex.Data.DAL\PrimusFlex.Data.DAL.csproj">
+      <Project>{C36247CB-67A2-4C8B-BC75-EA1FDD5ACA8D}</Project>
+      <Name>PrimusFlex.Data.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

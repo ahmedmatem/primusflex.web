@@ -2,7 +2,7 @@
 {
     public static class Constant
     {
-        public const string WEB_SITE_NAME = "Primus Flex ltd.";
+        public const string WEB_SITE_NAME = "Primus Flex Ltd.";
 
         // Roles
         public const string ROLE_SUPPER_ADMIN = "SupperAdmin";
@@ -13,5 +13,8 @@
         // Storage
         public const string PRIMARY_BLOB_SERVICE_ENDPOINT = "https://primusflex.blob.core.windows.net/";
         public const string IMAGES_CONTAINER = "image-container";
+
+        // Tables
+        public const int NUMBER_OF_IMAGES_IN_ROW = 6;
     }
 }

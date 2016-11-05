@@ -1,0 +1,68 @@
+﻿@model IEnumerable<PrimusFlex.Web.Areas.Management.ViewModels.ReportViewModel>
+
+@{
+    ViewBag.Title = "Reports";
+}
+
+<div class="container row">
+    <div class="pull-left"><h2>Reports</h2></div>
+    <div class="pull-right"><h2><a href="~/Management/Reports/Create" class="btn btn-default">Create</a></h2></div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SiteName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plot)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Info)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date, new { htmlAttributes = new { @Value = item.Date.ToShortDateString()} })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SiteName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Plot)
+        </td>
+        <td class="info_@item.Id" title="">
+            @Html.DisplayFor(modelItem => item.Info, "TruncatedText", new { Length = 42 })
+        </td>
+        <td>
+            <a href="~/Management/Reports/Edit/@item.Id" class="btn btn-default btn-xs" title="Edit"><i class="fa fa-edit"></i></a>
+            <a href="~/Management/Reports/Delete/@item.Id" class="btn btn-default btn-xs" title="Delete"><i class="fa fa-trash"></i></a>
+        </td>
+    </tr>
+}
+
+</table>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("td[class^='info']").mouseover(function () {
+                var current_td = $(this);
+                var id = $(this).attr("class").split("_")[1];
+                $.get("@Url.Content("~/Management/Reports/Info/")",
+                    {id : id},
+                    function (title) {
+                        current_td.attr("title", title);
+                    });
+            });
+        });
+    </script>
+}

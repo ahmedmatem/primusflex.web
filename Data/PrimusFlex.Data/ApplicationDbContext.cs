@@ -18,9 +18,13 @@
         // SorageAccount contain name and key for Azure Storage
         public IDbSet<StorageAccount> StorageAccount { get; set; }
 
+        public IDbSet<Site> Sites { get; set; }
+
         public IDbSet<Image> Images { get; set; }
 
         public IDbSet<Kitchen> Kitchens { get; set; }
+
+        public IDbSet<Report> Reports { get; set; }
 
         public IDbSet<Phone> Phones { get; set; }
 

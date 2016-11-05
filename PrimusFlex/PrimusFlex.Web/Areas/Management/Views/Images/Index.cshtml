@@ -1,0 +1,40 @@
+﻿@model IEnumerable<PrimusFlex.Web.Areas.Management.ViewModels.ImagesIndexViewModel>
+
+@{
+    ViewBag.Title = "Images";
+    int imagesCount;
+    int numberOfImagesInRow = PrimusFlex.Web.Infrastructure.Constant.NUMBER_OF_IMAGES_IN_ROW;
+    int currentImageNumber = 0;
+}
+
+<div class="container row">
+    <div class="pull-left"><h2>Images</h2></div>
+    @*<div class="pull-right"><h2><a href="~/Management/Reports/Create" class="btn btn-default">Create</a></h2></div>*@
+</div>
+
+@foreach (var item in Model)
+{
+    imagesCount = item.Images.Count();
+    currentImageNumber = 0;
+    var images = item.Images.ToArray();
+
+    <div class="row container">
+        <div>@item.SiteName, Plot @item.PlotNumber, @item.KitchcenModel</div>
+    </div>
+    <br />
+    for (int row = 0; row <= imagesCount / numberOfImagesInRow; row++)
+    {
+        <div class="row">
+            @for (int col = 0; col < numberOfImagesInRow && currentImageNumber < imagesCount; col++)
+            {
+                <div class="col-md-2 col-xs-6">
+                    <a href="#" class="thumbnail">
+                        <img src="@images[currentImageNumber].Uri" alt="" />
+                    </a>
+                </div>
+                currentImageNumber++;
+            }
+        </div>
+    }
+    <br />
+}

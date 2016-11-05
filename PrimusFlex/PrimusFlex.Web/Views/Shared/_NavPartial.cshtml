@@ -2,7 +2,7 @@
 @using PrimusFlex.Web.Infrastructure
 
 <ul class="nav navbar-nav">
-    <li class="@Html.IsActive()">
+    <li class="@Html.IsActive(controllers : "Home")">
         <a href="@Url.Content("~/")"><i class="fa fa-home"></i> Home</a>
     </li>
     
@@ -13,15 +13,27 @@
             User.IsInRole(Constant.ROLE_ADMIN) ||
             User.IsInRole(Constant.ROLE_MANAGER))
         {
-            <li class="@Html.IsActive(controllers: "Users")">
+            <li class="@Html.IsActive(controllers: "ControlPanel,Sites")">
                 @*@Html.ActionLink("Users", "Index", "User", new { area = "Management" }, null)*@
-                <a href="@Url.Content("~/management/users")"><i class="fa fa-users"></i> Users</a>
+                <a href="@Url.Content("~/Management/ControlPanel")"><i class="fa fa-tachometer"></i> Control Panel</a>
             </li>
+            @*<li class="@Html.IsActive(controllers: "Users")">
+                <a href="@Url.Content("~/Management/Users")"><i class="fa fa-users"></i> Users</a>
+            </li>*@
         }
 
-        // SAAM and Worker Roles
-        <li class="@Html.IsActive(controllers: "Images")">
+        // Worker Roles
+        if (User.IsInRole(Constant.ROLE_WORKER))
+        {
+            <li class="@Html.IsActive(controllers: "Images")">
+                <a href="@Url.Content("~/Management/Images")"><i class="fa fa-file-picture-o"></i> Images</a>
+            </li>
+            <li class="@Html.IsActive(controllers: "Reports")">
+                <a href="@Url.Content("~/Management/Reports")"><i class="fa fa-list"></i> Reports</a>
+            </li>
+        }
+        @*<li class="@Html.IsActive(controllers: "Images")">
             <a href="@Url.Content("~/management/images")"><i class="fa fa-image"></i> Images</a>
-        </li>
+        </li>*@
     }
 </ul>

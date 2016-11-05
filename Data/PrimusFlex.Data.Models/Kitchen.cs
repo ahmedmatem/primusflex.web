@@ -17,6 +17,8 @@
             this.Images = new HashSet<Image>();
         }
 
+        public string UserName { get; set; }
+
         [Required]
         public KitchenModel Model { get; set; }
 
@@ -25,6 +27,8 @@
 
         [Required]
         public string PlotNumber { get; set; }
+
+        public int ImageNumber { get; set; }
 
         // Navigation properties
 

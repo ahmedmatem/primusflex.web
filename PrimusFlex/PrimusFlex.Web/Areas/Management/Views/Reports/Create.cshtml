@@ -1,0 +1,143 @@
+﻿@model PrimusFlex.Web.Areas.Management.ViewModels.ReportViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.OwnerId, new { data_ajax_ownerId = "OwnerId" })
+
+    <div class="row">
+        <div class="col-md-6 form-horizontal">
+            <h4>New report</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control datepicker", @Value = Model.Date.ToString("MM/dd/yyyy") } })
+                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SiteId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NoApprovedSiteName, new { htmlAttributes = new { @class = "form-control hide", data_ajax_triggered = "noApprovedSite" } })
+
+                    @Html.DropDownListFor(model => model.SiteId, new SelectList(ViewBag.Sites, "Value", "Text"), "Choose a site",  new { @class = "form-control", data_ajax_triggered = "site" })
+                    @Html.ValidationMessageFor(model => model.SiteId, "", new { @class = "text-danger" })
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.IsNotApprovedSite)
+                        <label for="IsNotApprovedSite">Site is not in the list.</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Plot, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Plot, new { htmlAttributes = new { @class = "form-control", data_ajax_triggered = "plot" } })
+                    @Html.ValidationMessageFor(model => model.Plot, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.KitchenModel, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EnumDropDownListFor(model => model.KitchenModel, new { @class = "form-control", data_ajax_triggered = "model" })
+                    @Html.ValidationMessageFor(model => model.KitchenModel, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Info, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Info, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Info, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <h4>Images</h4>
+            <hr />
+
+            <div class="row" data-images="">
+
+            </div>
+            
+        </div>
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        function GetImages() {
+            var ownerId = $("input[data-ajax-ownerId]").val();
+            var site = $("input[data-ajax-triggered='site']").val();
+            var plot = $("input[data-ajax-triggered='plot']").val();
+            var model = $("select[data-ajax-triggered='model'] option:selected").text();
+            
+            $.get("GetImages",
+                {ownerId : ownerId, site : site, plot : plot, model : model},
+                function (data) {
+                    $("div[data-images]").html(data);
+                });
+        };
+    </script>
+
+    <script>
+        $("document").ready(function () {
+            $(".datepicker").datepicker();
+
+            $("input[data-ajax-triggered]").keyup(GetImages);
+            $("select[data-ajax-triggered]").change(GetImages);
+            
+            $("input[type='checkbox']").change(function () {
+
+                if ($(this).is(":checked")) {
+                    $("#SiteId").hide();
+
+                    // show editor for no approved site
+                    $("#NoApprovedSiteName").removeClass("hide");
+                    $("#NoApprovedSiteName").show();
+                    // change checkbox label
+                    $("label[for='IsNotApprovedSite']").html("Uncheck box to select site from list.");
+                }
+                else {
+                    // hide editor element
+                    $("#NoApprovedSiteName").hide();
+                    // show select element with sites list
+                    $("#SiteId").show();
+                    // change checkbox label
+                    $("label[for='IsNotApprovedSite']").html("Site is not in the list.");
+                }
+
+                $("#NoApprovedSite").keyup(function () {
+                    
+                });
+
+            });
+        });
+
+        
+    </script>
+}

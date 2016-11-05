@@ -7,6 +7,8 @@
 
     public class ImageViewModel
     {
+        public int Id { get; set; }
+
         public string Uri { get; set; }
     }
 }

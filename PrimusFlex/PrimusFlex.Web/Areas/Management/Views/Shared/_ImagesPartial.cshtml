@@ -1,0 +1,11 @@
+﻿@model List<PrimusFlex.Web.Areas.Management.ViewModels.ImageViewModel>
+
+@foreach (var image in Model)
+{
+    <div class="col-md-4">
+        <a href="#" class="thumbnail">
+            <img src="@image.Uri" alt="@image.Uri">
+        </a>
+    </div>
+}
+

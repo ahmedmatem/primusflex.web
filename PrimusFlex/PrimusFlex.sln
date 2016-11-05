@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimusFlex.Data.Common", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimusFlex.Web.Infrastructure", "..\PrimusFlex.Web.Infrastructure\PrimusFlex.Web.Infrastructure.csproj", "{E0C47B8A-E312-4426-87DB-4A0CC9EC250C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimusFlex.Data.DAL", "Data\PrimusFlex.Data.DAL\PrimusFlex.Data.DAL.csproj", "{C36247CB-67A2-4C8B-BC75-EA1FDD5ACA8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{E0C47B8A-E312-4426-87DB-4A0CC9EC250C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0C47B8A-E312-4426-87DB-4A0CC9EC250C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0C47B8A-E312-4426-87DB-4A0CC9EC250C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C36247CB-67A2-4C8B-BC75-EA1FDD5ACA8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C36247CB-67A2-4C8B-BC75-EA1FDD5ACA8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C36247CB-67A2-4C8B-BC75-EA1FDD5ACA8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C36247CB-67A2-4C8B-BC75-EA1FDD5ACA8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,5 +55,6 @@ Global
 		{8EBA1F0A-BAD7-4269-AF2E-136B9BB759E6} = {2B43DB98-8098-4F99-BD01-9A84056FB521}
 		{D3188A77-F889-44DF-9D12-384F7B6DB990} = {2B43DB98-8098-4F99-BD01-9A84056FB521}
 		{F0F79E55-407E-43D8-B3F0-90D9472F2C50} = {2B43DB98-8098-4F99-BD01-9A84056FB521}
+		{C36247CB-67A2-4C8B-BC75-EA1FDD5ACA8D} = {2B43DB98-8098-4F99-BD01-9A84056FB521}
 	EndGlobalSection
 EndGlobal

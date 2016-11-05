@@ -16,11 +16,15 @@
 
         public int KitchenId { get; set; }
 
+        public int? ReportId { get; set; }
+
         public string OwnerId { get; set; }
 
         // Navigation properties
 
         public virtual Kitchen Kitchen { get; set; }
+
+        public virtual Report Report { get; set; }
 
         public virtual ApplicationUser Owner { get; set; }
     }

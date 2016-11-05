@@ -1,13 +1,14 @@
 ﻿@using Microsoft.AspNet.Identity
 @using PrimusFlex.Web.Infrastructure
 @using PrimusFlex.Web.Infrastructure.Helpers
+
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+                    @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right">
                 @if (User.IsInRole(Constant.ROLE_SUPPER_ADMIN))
                 {
 

@@ -22,3 +22,16 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.site-title {
+    font-family: 'High Tower Text';
+}
+
+.img-icon {
+    width: 256px;
+    height: 256px;
+}
+
+.alert-pills a{
+    margin-right: 20px;
+}
